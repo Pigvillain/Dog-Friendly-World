@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+   
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>개편한 세상</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='images/favi.png') }}" />
+</head>
+<body>
+<div class="container">
+    <a href="{{ url_for('index') }}">
+    <header>
+        <h1 class="outlined-text">개편한 세상</h1>
+        <img src="{{ url_for('static', filename='images/corgi.png') }}" alt="Corgi" class="logo">
+    </header>
+    </a>
+    <section class="analysis">
+        <h2>아래의 버튼을 눌러</h2>
+        <h2>지금 바로 견종을 분석해보세요!</h2>
+        <div class="buttons">
+           <!-- 카메라로 촬영하기 버튼 -->
+            <form action="/result" method="post" enctype="multipart/form-data">
+                <input type="file" name="file" accept="image/*" capture="camera" style="display: none;" id="cameraInput">
+                <button type="button" onclick="document.getElementById('cameraInput').click();"
+                style="border: none; background: none;">
+                    <div class="button-shape">
+                        <img src="{{ url_for('static', filename='images/camera.png') }}" alt="카메라로 촬영하기">
+                    </div>
+                </button>
+                <p>카메라로 촬영하기</p>
+            </form>
+
+           <!-- 갤러리에서 이미지 찾기 버튼 -->
+            <form action="/result" method="post" enctype="multipart/form-data">
+                <input type="file" name="file" accept="image/*" style="display: none;" id="galleryInput">
+                <button type="button" onclick="document.getElementById('galleryInput').click();"  
+                style="border: none; background: none;">
+                    <div class="button-shape">
+                        <img src="{{ url_for('static', filename='images/gallery.png') }}" alt="갤러리에서 이미지 찾기">
+                    </div>
+                </button>
+                <p>갤러리에서 찾기</p>
+            </form>
+        </div>
+    </section>
+    <section class="middle">
+        <img src="{{ url_for('static', filename='images/dog0.PNG') }}" alt="개편한 세상 이미지">
+        <h1>개편한 세상이 견종을 분석해줄게요</h1>
+        <span>이미 수많은 사람들이 개편한 세상을 이용했어요.</span>
+        <span>간편하게 사진을 찍고, 분석해봐요.</span>
+        <span>분석에 따른 세부적인 정보도 확인할 수 있습니다.</span>
+    </section>
+    <section class="ranking">
+        <h3>이만큼 많은 사람들이 </h3>
+        <h3>개편한 세상을 이용했어요!</h3>
+        <ul>
+            <li>
+                <img src="{{ url_for('static', filename='images/dog1.png') }}" alt="포메라니안">
+                <span>포메라니안</span>
+                <span>1722회</span>
+                <span>24.6%</span>
+            </li>
+            <li>
+                <img src="{{ url_for('static', filename='images/dog2.png') }}" alt="몰티즈">
+                <span>몰티즈</span>
+                <span>1003회</span>
+                <span>14.3%</span>
+            </li>
+            <li>
+                <img src="{{ url_for('static', filename='images/dog3.png') }}" alt="치와와">
+                <span>치와와</span>
+                <span>847회</span>
+                <span>12.1%</span>
+            </li>
+            <li>
+                <img src="{{ url_for('static', filename='images/dog5.png') }}" alt="프렌치 불독">
+                <span>불독</span>
+                <span>628회</span>
+                <span>8.9%</span>
+            </li>
+            <li>
+                <img src="{{ url_for('static', filename='images/dog6.png') }}" alt="푸들">
+                <span>푸들</span>
+                <span>587회</span>
+                <span>8.4%</span>
+            </li>
+            <li>
+                <img src="{{ url_for('static', filename='images/dog3.png') }}" alt="치와와">
+                <span>치와와</span>
+                <span>456회</span>
+                <span>6.5%</span>
+            </li>
+            <li>
+                <img src="{{ url_for('static', filename='images/dog7.png') }}" alt="비숑 프리제">
+                <span>비숑</span>
+                <span>325회</span>
+                <span>4.6%</span>
+            </li>
+            <li>
+                <img src="{{ url_for('static', filename='images/dog6.png') }}" alt="푸들">
+                <span>푸들</span>
+                <span>225회</span>
+                <span>3.2%</span>
+            </li>
+            <li>
+                <img src="{{ url_for('static', filename='images/dog9.png') }}" alt="웰시 코기">
+                <span>웰시 코기</span>
+                <span>187회</span>
+                <span>2.7%</span>
+            </li>
+          
+        </ul>
+    </section>
+    <section class="login">
+        <p>더 많은 랭킹은 로그인 후 확인해주세요!</p>
+        <p style="margin-bottom: 32px">다양한 견종백과와 최근 분석결과도 확인할 수 있어요!</p>
+        <a href="{{ url_for('login') }}"><button>로그인하기</button></a>
+        <p>아직 계정이 없으신가요? <a href="{{ url_for('login') }}">회원가입</a></p>
+    </section>
+    <footer>
+        <p>© 2024 [Your Company Name]. All rights reserved.</p>
+        <p>본 웹사이트를 이용함으로써 귀하는 다음과 같은 이용 약관에 동의하게 됩니다. 모든 정보는 사용자 개인의 책임하에 이용되며, 웹사이트 운영자는 어떠한 책임도 지지 않습니다.</p>
+        <p>귀하의 개인정보는 엄격히 보호되며, 동의 없이 제3자와 공유되지 않습니다. 자세한 내용은 <a href="#">개인정보 처리방침</a> 페이지를 참조하세요.</p>
+        <p>본 웹사이트는 사용자 경험을 향상시키기 위해 쿠키를 사용합니다. 쿠키 사용에 대한 자세한 내용은 <a href="#">쿠키 정책</a> 페이지를 참조하세요.</p>
+    </footer>
+</div>
+
+<script>
+    // 파일이 선택되면 자동으로 분석하기
+    document.getElementById('cameraInput').addEventListener('change', function() {
+        this.form.submit();
+    });
+
+    document.getElementById('galleryInput').addEventListener('change', function() {
+        this.form.submit();
+    });
+</script>
+</body>
+</html>

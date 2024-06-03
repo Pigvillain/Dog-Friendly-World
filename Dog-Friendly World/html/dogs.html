@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>개~편한세상</title>
+</head>
+<body>
+    <h1>개편한세상</h1>
+    <form action="/predict" method="post" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <input type="submit" value="분석하기">
+    </form>
+    
+    {% if image_file %}
+    <h2>Uploaded Image:</h2>
+    <img src="{{ image_file }}" alt="Uploaded Image" style="max-width: 500px;">
+    {% endif %}
+    
+    {% if class_name and confidence_score %}
+    <h2>Result:</h2>
+    <p>Class: {{ class_name }}</p>
+    <p>Confidence Score: {{ confidence_score }}</p>
+    {% endif %}
+</body>
+</html>
