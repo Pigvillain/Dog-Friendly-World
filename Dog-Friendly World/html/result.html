@@ -38,22 +38,20 @@
             </div>
 
             <p class="shape">
-                푸들은 뛰어난 지능과 우아한 외모로 유명한 개 품종이에요.
-                사람들과의 교감을 즐기며 매우 친근한 성격을 가지고 있어요.
-                곱슬거리는 비알레르기성 털을 가지고 있어 알레르기 환자에게도 적합해요.
-                푸들은 활발하고 에너지가 넘쳐 규칙적인 운동과 놀이가 필요해요.
-                또한 수영을 매우 잘해요. 이들은 훈련하기 쉬워 다양한 도그 스포츠에서도 뛰어난 성과를 보여요.
-                털 관리가 필요하지만, 가족과의 친화력이 높아 애완견으로 매우 사랑받는 품종이에요.
+                역사:{{dog_info[0]}}<br>
+                특징:{{dog_info[1]}}<br>
+                성격:{{dog_info[2]}}<br>
             </p>
         </div>
 
         <h2>{{ class_name }}에 대해 더 자세히 확인해보세요!</h2>
-        <a href="dog-info.html">
+        <a href="{{ url_for('dog_info', class_name=class_name|urlencode) }}">
             <div class="button-shape2">
                 <p style="font-size: 24px">견종백과 :{{ class_name }} </p>
                 <img src="{{ url_for('static', filename='images/book-ico.png') }}">
             </div>
         </a>
+        
         <h2>사진을 다시 찍어볼까요?</h2>
 
         <div class="buttons">
@@ -87,4 +85,23 @@
     </section>
     <footer>
         <p>© 2024 [Your Company Name]. All rights reserved.</p>
-        <p>본 웹사이트를 이용함으로써 귀하는 다음과 같은 이용 약관에 동의하게 됩니다. 모든 정보는 사용자 개인의 책임하에 이용되며, 웹사이트 운영자는 어떠한 책임도 지지 않습니다.</
+        <p>본 웹사이트를 이용함으로써 귀하는 다음과 같은 이용 약관에 동의하게 됩니다. 모든 정보는 사용자 개인의 책임하에 이용되며, 웹사이트 운영자는 어떠한 책임도 지지 않습니다.</p>
+        <p>귀하의 개인정보는 엄격히 보호되며, 동의 없이 제3자와 공유되지 않습니다. 자세한 내용은 <a href="#">개인정보 처리방침</a> 페이지를 참조하세요.</p>
+        <p>본 웹사이트는 사용자 경험을 향상시키기 위해 쿠키를 사용합니다. 쿠키 사용에 대한 자세한 내용은 <a href="#">쿠키 정책</a> 페이지를 참조하세요.</p>
+    </footer>
+      </div>
+      <script>
+        // 파일이 선택되면 자동으로 분석하기
+        document.getElementById('cameraInput').addEventListener('change', function() {
+            this.form.submit();
+        });
+    
+        document.getElementById('galleryInput').addEventListener('change', function() {
+            this.form.submit();
+        });
+    </script>
+    
+      </body>
+      
+      </html>
+
